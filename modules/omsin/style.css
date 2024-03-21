@@ -1,0 +1,157 @@
+.omsin_card {
+  background-color: var(--background);
+  color: var(--color);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.omsin_card h3 {
+  padding: 10px;
+}
+.omsin_card .body {
+  padding: 10px;
+}
+/* bar chart */
+.chart {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.chart .group {
+  display: table-cell;
+  padding-left: 5px;
+}
+.chart .item {
+  display: block;
+  background-color: var(--background);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.chart:last-child,
+.chart .item:last-child {
+  margin-bottom: 0;
+}
+.chart .title {
+  display: table-cell;
+  width: 4em;
+  vertical-align: middle;
+  text-align: center;
+  color: inherit;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+.chart .item .label {
+  float: left;
+  padding: 2px 5px;
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+.chart .bar {
+  font-style: normal;
+  text-align: right;
+  background-color: #f9f9f9;
+  display: block;
+  white-space: nowrap;
+  padding: 2px 0;
+  vertical-align: middle;
+  min-width: 1px;
+}
+.chart .bar span {
+  padding: 0 5px;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+.chart .positive {
+  background-color: rgba(0, 255, 0, 0.1);
+  color: rgba(0, 200, 0, 1);
+}
+.chart .negative {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: rgba(200, 0, 0, 1);
+}
+.chart .total {
+  background-color: rgba(0, 0, 255, 0.1);
+  color: rgba(0, 0, 200, 1);
+}
+.chart .bg1,
+.chart.bg1 .title {
+  background-color: #8bcc73;
+}
+.chart .bg2,
+.chart.bg2 .title {
+  background-color: #f66a79;
+}
+.chart .bg3,
+.chart.bg3 .title {
+  background-color: #79a4ee;
+}
+.chart .bg4,
+.chart.bg4 .title {
+  background-color: #e88662;
+}
+.chart .bg5,
+.chart.bg5 .title {
+  background-color: #4cc5b9;
+}
+.chart .bg6,
+.chart.bg6 .title {
+  background-color: #d578f6;
+}
+.chart .bg7,
+.chart.bg7 .title {
+  background-color: #ff9e2c;
+}
+.chart .bg8,
+.chart.bg8 .title {
+  background-color: #b4d27c;
+}
+.chart .bg9,
+.chart.bg9 .title {
+  background-color: #4ecdc4;
+}
+.chart .bg10,
+.chart.bg10 .title {
+  background-color: #ff6b6b;
+}
+.chart .bg11,
+.chart.bg11 .title {
+  background-color: #97f464;
+}
+.chart .bg12,
+.chart.bg12 .title {
+  background-color: #ab64f4;
+}
+a#ierecord {
+  display: none;
+}
+@media only screen and (max-width: 960px) {
+  a#ierecord {
+    z-index: 7;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    margin-top: -5.2em;
+    font-size: 1.4em;
+    text-decoration: none;
+    background-color: #1276b9;
+    background-color: rgba(18, 118, 185, 0.9);
+    color: #fff;
+    height: 2em;
+    width: 2em;
+    text-align: center;
+    line-height: 2em;
+    border-radius: 50em;
+    -moz-border-radius: 50em;
+    -webkit-border-radius: 50em;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+}
