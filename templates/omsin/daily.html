@@ -1,0 +1,59 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-day" data-i18n>{LNG_Daily Report}</h1>
+            <p data-i18n>{LNG_Income and Expenditure summary}</p>
+          </div>
+          <div>
+            <a class="btn icon-report" href="/omsin-report" data-i18n>{LNG_Report}</a>
+            <a class="btn btn-primary icon-billing" href="/omsin" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="omsinDaily" data-source="api/omsin/daily" data-default-sort="create_date desc" data-page-size="50"
+                   data-action-params="date" data-show-checkbox="true" data-show-footer="true" data-actions='{"delete":"Delete"}'
+                   data-action-url="api/omsin/daily/action" data-row-actions='{
+                      "edit": {
+                        "title": "Edit",
+                        "className": "btn btn-success icon-edit",
+                        "condition": "editable == 1"
+                      },
+                      "delete": {
+                        "title": "Delete",
+                        "className": "btn btn-danger icon-delete",
+                        "confirm": "Do you want to delete the selected information ?"
+                      }
+                    }'>
+              <thead>
+                <tr>
+                  <th data-field="create_date_text" data-sort="create_date" class="nowrap" data-cell-class="nowrap" data-i18n>{LNG_Time}</th>
+                  <th data-field="category_text" data-sort="category_id" data-cell-class="nowrap" data-i18n>{LNG_Category}</th>
+                  <th data-field="wallet_text" data-sort="wallet" data-cell-class="nowrap" data-i18n>{LNG_Wallet}</th>
+                  <th data-field="comment" data-i18n>{LNG_Annotation}</th>
+                  <th data-field="amount_text" data-sort="income" class="center" data-cell-class="right"
+                      data-template="<span class='${amount_class}'>${amount_text}</span>" data-i18n>{LNG_Amount}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4" class="right" data-i18n>{LNG_Total}</td>
+                  <td class="right" data-field="net" data-aggregate="sum" data-format="currency"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

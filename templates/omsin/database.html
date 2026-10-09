@@ -1,0 +1,69 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups" data-component="api" data-endpoint="api/omsin/database/info">
+        <header>
+          <div>
+            <h1 class="icon-database" data-i18n>{LNG_Import}/{LNG_Export}</h1>
+            <p><span data-text="records">0</span> <span data-i18n>{LNG_entries}</span></p>
+          </div>
+          <div>
+            <a class="btn btn-primary icon-billing" href="/omsin" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <form data-form="omsinImport" action="api/omsin/database/import" method="post" data-ajax-submit="true" autocomplete="off"
+                enctype="multipart/form-data">
+            <fieldset>
+              <legend data-i18n>{LNG_Import}</legend>
+              <div>
+                <label for="csv" data-i18n>{LNG_Browse file}</label>
+                <span class="form-control icon-upload">
+                  <input type="file" id="csv" name="csv" accept=".csv" required>
+                </span>
+                <p class="comment">
+                  <span data-i18n>{LNG_Select a file for importing}</span> <em>omsin.csv</em>
+                  (<button type="button" class="btn btn-link" data-on="click: omsinDemo" data-i18n>{LNG_sample file download}</button>)
+                </p>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-success icon-import" data-i18n>{LNG_Import}</button>
+              </div>
+            </fieldset>
+          </form>
+
+          <fieldset>
+            <legend data-i18n>{LNG_Export}</legend>
+            <div>
+              <p class="comment" data-i18n>{LNG_Download <em>omsin.csv</em> file for database backup}</p>
+              <button type="button" class="btn btn-success icon-export" data-on="click: omsinExport" data-i18n>{LNG_Export}</button>
+            </div>
+          </fieldset>
+
+          <form data-form="omsinReset" action="api/omsin/database/action" method="post" data-ajax-submit="true"
+                data-confirm="Delete all your data? This cannot be undone." autocomplete="off">
+            <fieldset>
+              <legend data-i18n>{LNG_Reset}</legend>
+              <div class="warning">
+                <p data-i18n>{LNG_press Reset button to delete all user data}</p>
+              </div>
+              <div>
+                <input type="checkbox" class="switch" id="reset_confirm" name="reset_confirm" value="1" required>
+                <label for="reset_confirm" data-i18n>{LNG_This action cannot be undone}</label>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-danger icon-delete" data-i18n>{LNG_Reset}</button>
+                <input type="hidden" name="action" value="reset">
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

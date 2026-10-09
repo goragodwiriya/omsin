@@ -1,0 +1,67 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups" data-component="api" data-endpoint="api/omsin/report" data-url-params="true" data-url-params-fields="year,month">
+        <header>
+          <div>
+            <h1 class="icon-report" data-text="title" data-i18n>{LNG_Income and Expenditure summary}</h1>
+            <p data-text="chart_title"></p>
+          </div>
+          <div>
+            <a class="btn icon-arrow-left" data-if="has_back" data-attr="href: back_url" data-i18n>{LNG_Back}</a>
+            <a class="btn btn-primary icon-billing" href="/omsin" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div data-if="!has_data">
+            <aside class="error" data-i18n>{LNG_Sorry, no information available for this item.}</aside>
+          </div>
+
+          <section data-if="has_data">
+            <h2 data-text="chart_title"></h2>
+            <div data-for="item in summary">
+              <template>
+                <div class="omsin-chart" data-class="item.color_class">
+                  <a class="omsin-title" data-attr="href: item.url, title: item.hint" data-text="item.label"></a>
+                  <div class="omsin-group">
+                    <div class="omsin-item">
+                      <span class="omsin-label" data-i18n>{LNG_Income}</span>
+                      <span class="omsin-bar positive" data-attr="style: item.income_style">
+                        <span data-text="item.income_text"></span>
+                      </span>
+                    </div>
+                    <div class="omsin-item">
+                      <span class="omsin-label" data-i18n>{LNG_Expense}</span>
+                      <span class="omsin-bar negative" data-attr="style: item.expense_style">
+                        <span data-text="item.expense_text"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </section>
+
+          <section data-if="has_data">
+            <h2 data-text="category_title"></h2>
+            <div class="omsin-chart" data-for="item in categories">
+              <template>
+                <div class="omsin-item">
+                  <span class="omsin-label" data-text="item.label"></span>
+                  <span class="omsin-bar" data-class="item.color_class" data-attr="style: item.style">
+                    <span data-text="item.value_text"></span>
+                  </span>
+                </div>
+              </template>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

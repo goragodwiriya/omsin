@@ -1,0 +1,84 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-pie" data-i18n>{LNG_Income and Expenditure summary}</h1>
+            <p data-i18n>{LNG_Wallet}</p>
+          </div>
+          <div>
+            <a class="btn btn-primary icon-billing" href="/omsin" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</a>
+          </div>
+        </header>
+        <div class="content-body" data-component="api" data-endpoint="api/omsin/home">
+          <div class="ggrid">
+            <div class="block6 stat-card positive">
+              <div class="stat-header icon-money">
+                <div class="stat-title" data-i18n>{LNG_Today&#039;s receipts}</div>
+              </div>
+              <div class="stat-value"><span data-text="today_income">0</span> <small data-text="unit"></small></div>
+            </div>
+            <div class="block6 stat-card negative">
+              <div class="stat-header icon-money">
+                <div class="stat-title" data-i18n>{LNG_Today&#039;s expenses}</div>
+              </div>
+              <div class="stat-value"><span data-text="today_expense">0</span> <small data-text="unit"></small></div>
+            </div>
+          </div>
+
+          <section class="card-groups">
+            <header>
+              <div>
+                <h2 class="icon-wallet" data-i18n>{LNG_Wallet}</h2>
+              </div>
+            </header>
+            <div class="content-body">
+              <div data-if="!has_wallet">
+                <p class="comment" data-i18n>{LNG_Sorry, no information available for this item.}</p>
+              </div>
+              <dl class="omsin-chart" data-for="item in wallets">
+                <template>
+                  <dd class="omsin-item">
+                    <span class="omsin-label" data-text="item.topic"></span>
+                    <span class="omsin-bar" data-class="item.bar_class" data-attr="style: item.bar_style">
+                      <span data-text="item.money_text"></span>
+                    </span>
+                  </dd>
+                </template>
+              </dl>
+              <dl class="omsin-chart">
+                <dd class="omsin-item">
+                  <span class="omsin-label" data-i18n>{LNG_Total}</span>
+                  <span class="omsin-bar total" data-attr="style: total_style">
+                    <span data-text="total_text"></span>
+                  </span>
+                </dd>
+              </dl>
+            </div>
+          </section>
+
+          <div class="ggrid">
+            <div class="block6 stat-card positive">
+              <div class="stat-header icon-summary">
+                <div class="stat-title" data-i18n>{LNG_All receipts}</div>
+              </div>
+              <div class="stat-value"><span data-text="total_income">0</span> <small data-text="unit"></small></div>
+            </div>
+            <div class="block6 stat-card negative">
+              <div class="stat-header icon-summary">
+                <div class="stat-title" data-i18n>{LNG_All expenses}</div>
+              </div>
+              <div class="stat-value"><span data-text="total_expense">0</span> <small data-text="unit"></small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

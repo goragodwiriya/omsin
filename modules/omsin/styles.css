@@ -1,0 +1,432 @@
+/**
+ * modules/omsin/styles.css
+ *
+ * แถบเปรียบเทียบรายรับ-รายจ่าย ยกมาจากระบบเดิม (modules/omsin/style.css)
+ * ทุกคลาสขึ้นต้นด้วย omsin- เพื่อไม่ให้ชนกับ core หรือโมดูลอื่น
+ */
+
+/* แถบเปรียบเทียบ */
+.omsin-chart {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 var(--space-2, 8px);
+}
+
+.omsin-chart:last-child {
+  margin-bottom: 0;
+}
+
+.omsin-chart .omsin-group {
+  display: table-cell;
+  padding-left: var(--space-1, 4px);
+  vertical-align: middle;
+}
+
+.omsin-chart .omsin-item {
+  display: block;
+  border-radius: var(--radius-sm, 4px);
+  overflow: hidden;
+  margin-bottom: var(--space-1, 4px);
+}
+
+.omsin-chart .omsin-item:last-child {
+  margin-bottom: 0;
+}
+
+.omsin-chart .omsin-title {
+  display: table-cell;
+  width: 5em;
+  vertical-align: middle;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.omsin-chart .omsin-title:hover {
+  text-decoration: underline;
+}
+
+.omsin-chart .omsin-label {
+  float: left;
+  padding: 2px var(--space-1, 4px);
+  margin-right: var(--space-1, 4px);
+  background-color: rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+.omsin-chart .omsin-bar {
+  font-style: normal;
+  text-align: right;
+  display: block;
+  white-space: nowrap;
+  padding: 2px 0;
+  min-width: 1px;
+}
+
+.omsin-chart .omsin-bar span {
+  padding: 0 var(--space-1, 4px);
+}
+
+.omsin-chart .positive {
+  background-color: rgba(0, 200, 0, 0.15);
+  color: #1b7c1b;
+}
+
+.omsin-chart .negative {
+  background-color: rgba(220, 0, 0, 0.15);
+  color: #b32020;
+}
+
+.omsin-chart .total {
+  background-color: rgba(0, 0, 220, 0.15);
+  color: #2a2ab3;
+}
+
+/* สีประจำแถบ (วนซ้ำ 12 สีเหมือนระบบเดิม) */
+.omsin-chart .bg1,
+.omsin-chart.bg1 .omsin-title { background-color: #8bcc73; }
+.omsin-chart .bg2,
+.omsin-chart.bg2 .omsin-title { background-color: #f66a79; }
+.omsin-chart .bg3,
+.omsin-chart.bg3 .omsin-title { background-color: #79a4ee; }
+.omsin-chart .bg4,
+.omsin-chart.bg4 .omsin-title { background-color: #e88662; }
+.omsin-chart .bg5,
+.omsin-chart.bg5 .omsin-title { background-color: #4cc5b9; }
+.omsin-chart .bg6,
+.omsin-chart.bg6 .omsin-title { background-color: #d578f6; }
+.omsin-chart .bg7,
+.omsin-chart.bg7 .omsin-title { background-color: #ff9e2c; }
+.omsin-chart .bg8,
+.omsin-chart.bg8 .omsin-title { background-color: #b4d27c; }
+.omsin-chart .bg9,
+.omsin-chart.bg9 .omsin-title { background-color: #4ecdc4; }
+.omsin-chart .bg10,
+.omsin-chart.bg10 .omsin-title { background-color: #ff6b6b; }
+.omsin-chart .bg11,
+.omsin-chart.bg11 .omsin-title { background-color: #97f464; }
+.omsin-chart .bg12,
+.omsin-chart.bg12 .omsin-title { background-color: #ab64f4; }
+
+/* จำนวนเงินในตาราง */
+.omsin-income {
+  color: #1b7c1b;
+  white-space: nowrap;
+}
+
+.omsin-expense {
+  color: #b32020;
+  white-space: nowrap;
+}
+
+.omsin-transfer {
+  color: var(--text-muted, #777);
+  white-space: nowrap;
+}
+
+/* ========================================
+   หน้าเกี่ยวกับ
+   ======================================== */
+.omsin-about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.omsin-about p {
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Hero */
+.omsin-about-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-8);
+  border-radius: 16px;
+  background: var(--primary-gradient);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.omsin-about-hero::before,
+.omsin-about-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.omsin-about-hero::before {
+  width: 320px;
+  height: 320px;
+  top: -140px;
+  right: -80px;
+}
+
+.omsin-about-hero::after {
+  width: 180px;
+  height: 180px;
+  bottom: -90px;
+  right: 220px;
+}
+
+.omsin-about-logo {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  padding: var(--space-4);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.omsin-about-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.omsin-about-intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card-groups .omsin-about-intro h2 {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  color: #fff;
+}
+
+.omsin-about-intro p {
+  max-width: 42em;
+  font-size: var(--font-size-lg);
+  opacity: 0.9;
+}
+
+.omsin-about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.omsin-about-tags li {
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  font-size: var(--font-size-sm);
+  backdrop-filter: blur(4px);
+}
+
+/* จุดเด่น */
+.omsin-about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.omsin-about-feature,
+.omsin-about-card {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.omsin-about-feature {
+  --omsin-accent: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.omsin-about-feature:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--omsin-accent) 40%, transparent);
+  box-shadow: var(--shadow-lg);
+}
+
+.omsin-about-feature:nth-child(2) {
+  --omsin-accent: var(--color-info);
+}
+
+.omsin-about-feature:nth-child(3) {
+  --omsin-accent: var(--color-success);
+}
+
+.omsin-about-feature:nth-child(4) {
+  --omsin-accent: var(--color-purple);
+}
+
+.omsin-about-icon {
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--space-2);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--omsin-accent) 14%, transparent);
+  color: var(--omsin-accent);
+  font-size: 1.6rem;
+}
+
+.card-groups .omsin-about h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+}
+
+.omsin-about-feature p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ข้อตกลง + ผู้พัฒนา */
+.omsin-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: var(--space-4);
+}
+
+.omsin-about-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.card-groups .omsin-about-card h3 {
+  gap: var(--space-2);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.omsin-about-card h3:before {
+  color: var(--color-primary);
+}
+
+.omsin-about-terms {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: omsin-term;
+}
+
+.omsin-about-terms li {
+  position: relative;
+  padding-left: var(--space-12);
+  line-height: var(--line-height-relaxed);
+  counter-increment: omsin-term;
+}
+
+.omsin-about-terms li::before {
+  content: counter(omsin-term);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.omsin-about-dev {
+  align-items: center;
+  text-align: center;
+}
+
+.card-groups .omsin-about-dev h3 {
+  align-self: stretch;
+}
+
+.omsin-about-avatar {
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  margin-top: var(--space-2);
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: #fff;
+  font-size: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.omsin-about-dev strong {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 768px) {
+  .omsin-about-hero {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-5);
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .omsin-about-logo {
+    width: 104px;
+    height: 104px;
+  }
+
+  .card-groups .omsin-about-intro h2 {
+    justify-content: center;
+    font-size: var(--font-size-3xl);
+  }
+
+  .omsin-about-intro p {
+    font-size: var(--font-size-base);
+  }
+
+  .omsin-about-tags {
+    justify-content: center;
+  }
+
+  .omsin-about-feature {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-4);
+    row-gap: var(--space-1);
+    padding: var(--space-4);
+  }
+
+  .omsin-about-icon {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+
+  .omsin-about-grid {
+    grid-template-columns: 1fr;
+  }
+}

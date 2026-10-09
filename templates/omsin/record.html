@@ -1,0 +1,104 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="omsinRecord" action="api/omsin/record/save" method="post" data-ajax-submit="true" data-load-api="api/omsin/record/get"
+            data-load-query-params="true" data-on-load="omsinRecordForm" autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-billing" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</h1>
+              <p data-text="status_text"></p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend data-i18n>{LNG_Recording}</legend>
+
+              <div data-if="is_new">
+                <label for="status" data-i18n>{LNG_What do you want to do}?</label>
+                <span class="form-control icon-config">
+                  <select id="status" name="status" data-options-key="status" data-attr="value:status"></select>
+                </span>
+              </div>
+              <div data-if="!is_new">
+                <input type="hidden" name="status" data-attr="value:status">
+              </div>
+
+              <div data-omsin-group="category">
+                <label for="category_id" data-i18n>{LNG_Tag}</label>
+                <span class="form-control icon-tags">
+                  <input type="text" id="category_id" name="category_id" data-options-key="category_id" data-attr="value:category_id" maxlength="40">
+                </span>
+                <p class="comment" data-i18n>{LNG_Enter the category of receipts/expenses. Used for grouping such as food, utilities}</p>
+              </div>
+
+              <div data-omsin-group="wallet">
+                <label for="wallet" data-i18n>{LNG_Wallet}</label>
+                <span class="form-control icon-wallet">
+                  <select id="wallet" name="wallet" data-options-key="wallet" data-attr="value:wallet"></select>
+                </span>
+              </div>
+
+              <div data-omsin-group="wallet_name">
+                <label for="wallet_name" data-i18n>{LNG_Wallet}</label>
+                <span class="form-control icon-wallet">
+                  <input type="text" id="wallet_name" name="wallet_name" data-attr="value:wallet_name, readonly:!is_new" maxlength="40">
+                </span>
+                <p class="comment" data-i18n>{LNG_Enter wallet name for recording your incomes/expenses, such as Cash or Bank account name}</p>
+              </div>
+
+              <div class="form-group" data-omsin-group="transfer">
+                <div class="width50">
+                  <label for="from_wallet" data-i18n>{LNG_from}</label>
+                  <span class="form-control icon-wallet">
+                    <select id="from_wallet" name="from_wallet" data-options-key="from_wallet" data-attr="value:from_wallet"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="to_wallet" data-i18n>{LNG_to}</label>
+                  <span class="form-control icon-wallet">
+                    <select id="to_wallet" name="to_wallet" data-options-key="to_wallet" data-attr="value:to_wallet"></select>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="width50">
+                  <label for="amount"><span data-i18n>{LNG_Amount}</span> (<span data-text="currency_unit"></span>)</label>
+                  <span class="form-control icon-money">
+                    <input type="number" id="amount" name="amount" data-attr="value:amount" step="0.01" min="0">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="create_date" data-i18n>{LNG_Date}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="datetime-local" id="create_date" name="create_date" data-attr="value:create_date" required>
+                  </span>
+                </div>
+              </div>
+
+              <div data-omsin-group="comment">
+                <label for="comment" data-i18n>{LNG_Annotation}</label>
+                <span class="form-control icon-edit">
+                  <input type="text" id="comment" name="comment" data-attr="value:comment" maxlength="255">
+                </span>
+                <p class="comment" data-i18n>{LNG_Notes or Additional Notes}</p>
+              </div>
+            </fieldset>
+
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+              <a class="btn icon-arrow-left" href="/" data-i18n>{LNG_Cancel}</a>
+              <input type="hidden" name="id" data-attr="value:id">
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

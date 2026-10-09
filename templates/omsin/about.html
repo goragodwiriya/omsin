@@ -1,0 +1,83 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content" data-component="api" data-endpoint="api/index/auth/me">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-info" data-text="'{LNG_About} ' + data.web_title" data-i18n>{LNG_About}</h1>
+            <p data-text="data.web_description"></p>
+          </div>
+          <div>
+            <a class="btn btn-primary icon-billing" href="/omsin" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</a>
+          </div>
+        </header>
+        <div class="omsin-about">
+          <section class="omsin-about-hero">
+            <div class="omsin-about-logo">
+              <img data-attr="src:data.logo,alt:data.web_title" />
+            </div>
+            <div class="omsin-about-intro">
+              <h2 data-text="data.web_title"></h2>
+              <p>แอพพลิเคชั่นสำหรับทำบัญชีรายรับรายจ่าย เพื่อส่งเสริมการออมเงิน ใช้งานได้ทุกที่ที่มีอินเตอร์เน็ต</p>
+              <ul class="omsin-about-tags">
+                <li class="icon-valid">ใช้งานฟรี</li>
+                <li class="icon-cloud">ทำงานบนคลาวด์</li>
+                <li class="icon-lock">HTTPS</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="omsin-about-features">
+            <div class="omsin-about-feature">
+              <span class="omsin-about-icon icon-wallet"></span>
+              <h3>ส่งเสริมการออม</h3>
+              <p>บันทึกรายรับรายจ่าย เห็นภาพรวมการเงินของตัวเองได้ชัดเจน</p>
+            </div>
+            <div class="omsin-about-feature">
+              <span class="omsin-about-icon icon-cloud"></span>
+              <h3>ทำงานบนคลาวด์</h3>
+              <p>ข้อมูลอยู่บนคลาวด์ ใช้งานได้ทุกที่ที่มีอินเตอร์เน็ต</p>
+            </div>
+            <div class="omsin-about-feature">
+              <span class="omsin-about-icon icon-lock"></span>
+              <h3>ปลอดภัยสูง</h3>
+              <p>รับส่งข้อมูลผ่านการเชื่อมต่อแบบเข้ารหัส (https)</p>
+            </div>
+            <div class="omsin-about-feature">
+              <span class="omsin-about-icon icon-responsive"></span>
+              <h3>ใช้ได้ทุกอุปกรณ์</h3>
+              <p>โทรศัพท์มือถือ แท็บเล็ต หรือแม้กระทั่งแล็บท้อป</p>
+            </div>
+          </section>
+
+          <div class="omsin-about-grid">
+            <section class="omsin-about-card">
+              <h3 class="icon-documents">ข้อตกลงการใช้งาน</h3>
+              <ul class="omsin-about-terms">
+                <li>สามารถใช้งานได้ฟรี ไม่มีค่าใช้จ่าย ไม่มีข้อผูกมัดใดๆทั้งสิ้น</li>
+                <li>
+                  ผู้แต่งขอรับรองไม่เปิดเผยข้อมูลหรือนำข้อมูลส่วนตัวของผู้ใช้ไปใช้เพื่อการอื่นใดทั้งสิ้น นอกจากการใช้งานบนแอพพลิเคชั่นนี้เท่านั้น
+                  ยกเว้นหากได้รับการร้องขอจากทางราชการตามกฏหมาย
+                </li>
+                <li>ผู้แต่งไม่ขอรับรองข้อผิดพลาดใดๆของข้อมูล ไม่ว่าจะเกิดขึ้นโดยวิธีใด หรือเหตุการณ์ใดก็ตาม</li>
+                <li>สภาพการใช้งาน และความเร็วในการทำงาน ขึ้นอยู่กับ Internet ที่ใช้งานอยู่ และ ปริมาณผู้ใช้งานแอพพลิเคชั่นในขณะนั้น</li>
+              </ul>
+            </section>
+
+            <section class="omsin-about-card omsin-about-dev">
+              <h3 class="icon-code">ผู้พัฒนา</h3>
+              <div class="omsin-about-avatar icon-user"></div>
+              <strong>กรกฎ วิริยะ</strong>
+              <a class="btn btn-primary icon-world" href="https://www.kotchasan.com/" target="_blank" rel="noopener">KOTCHASAN.com</a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>
