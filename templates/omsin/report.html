@@ -1,0 +1,68 @@
+<div class="card-groups" data-component="api" data-endpoint="api/omsin/report" data-url-params="true" data-url-params-fields="year,month">
+  <header>
+    <div>
+      <h1 class="icon-report"><span>
+        <span data-i18n>{LNG_Income and Expenditure summary}</span>
+        <span data-if="month > 0"><span data-i18n>{LNG_Month}</span> <span data-text="period | date:MMMM"></span></span>
+        <span data-if="year > 0"><span data-i18n>{LNG_Year}</span> <span data-text="period | date:YYYY"></span></span>
+      </span></h1>
+      <p>
+        <span data-if="mode == 'summary'" data-i18n>{LNG_Yearly Report}</span>
+        <span data-if="mode == 'yearly'"><span data-i18n>{LNG_Monthly Report}</span> <span data-i18n>{LNG_Year}</span> <span data-text="period | date:YYYY"></span></span>
+        <span data-if="mode == 'monthly'"><span data-i18n>{LNG_Income and Expenditure summary}</span> <span data-i18n>{LNG_Monthly}</span> <span data-text="period | date:MMM"></span> <span data-i18n>{LNG_Year}</span> <span data-text="period | date:YYYY"></span></span>
+      </p>
+    </div>
+    <div>
+      <a class="btn icon-arrow-left" data-if="has_back" data-attr="href: back_url" data-i18n>{LNG_Back}</a>
+      <a class="btn btn-primary icon-billing" href="/omsin" data-i18n>{LNG_Recording} {LNG_Income}/{LNG_Expense}</a>
+    </div>
+  </header>
+  <div data-if="!has_data">
+    <aside class="error" data-i18n>{LNG_Sorry, no information available for this item.}</aside>
+  </div>
+  <section class="content-body" data-if="has_data">
+    <h2 class="icon-report">
+      <span data-if="mode == 'summary'" data-i18n>{LNG_Yearly Report}</span>
+      <span data-if="mode == 'yearly'"><span data-i18n>{LNG_Monthly Report}</span> <span data-i18n>{LNG_Year}</span> <span data-text="period | date:YYYY"></span></span>
+      <span data-if="mode == 'monthly'"><span data-i18n>{LNG_Income and Expenditure summary}</span> <span data-i18n>{LNG_Monthly}</span> <span data-text="period | date:MMM"></span> <span data-i18n>{LNG_Year}</span> <span data-text="period | date:YYYY"></span></span>
+    </h2>
+    <div class="omsin-item-groups" data-for="item in summary">
+      <template>
+        <div class="omsin-chart" data-class="'bg' + item.color">
+          <a class="omsin-title" data-attr="href: item.url, title: item.kind == 'year' ? '{LNG_Monthly Report}' : '{LNG_Daily Report}'">
+            <span data-if="item.kind == 'year'" data-text="item.date | date:YYYY"></span>
+            <span data-if="item.kind == 'month'" data-text="item.date | date:MMM"></span>
+            <span data-if="item.kind == 'day'" data-text="item.date | date:D MMM"></span>
+          </a>
+          <div class="omsin-group">
+            <div class="omsin-item">
+              <span class="omsin-label" data-i18n>{LNG_Income}</span>
+              <span class="omsin-bar positive" data-style="width: {{item.income_pct}}%">
+                <span data-text="item.income | number:2"></span><span data-text="unit"></span>
+              </span>
+            </div>
+            <div class="omsin-item">
+              <span class="omsin-label" data-i18n>{LNG_Expense}</span>
+              <span class="omsin-bar negative" data-style="width: {{item.expense_pct}}%">
+                <span data-text="item.expense | number:2"></span><span data-text="unit"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+  <section class="content-body" data-if="has_data">
+    <h2 class="icon-stats" data-i18n>{LNG_Summary of expenditures by category}</h2>
+    <div class="omsin-chart omsin-item-groups" data-for="item in categories">
+      <template>
+        <div class="omsin-item">
+          <span class="omsin-label" data-text="item.label"></span>
+          <span class="omsin-bar" data-class="'bg' + item.color" data-style="width: {{item.pct}}%">
+            <span data-text="item.value | number:2"></span><span data-text="unit"></span>
+          </span>
+        </div>
+      </template>
+    </div>
+  </section>
+</div>
